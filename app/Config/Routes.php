@@ -10,3 +10,4 @@ $routes->get('dashboard', 'Admin::dashboard');
 $routes->get('contestant', 'Contestant::index');
 $routes->get('judges', 'Judges::index');
 $routes->get('rounds', 'Rounds::index');
+$routes->get('results', 'Results::index');
