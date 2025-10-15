@@ -8,3 +8,4 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('dashboard', 'Admin::dashboard');
 $routes->get('contestant', 'Contestant::index');
+$routes->get('judges', 'Judges::index');
