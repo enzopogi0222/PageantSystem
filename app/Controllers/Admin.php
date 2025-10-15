@@ -33,6 +33,6 @@ class Admin extends BaseController
             'score_stats' => ['finalized_judges' => 0]
         ];
         
-        return view('dashboard', $data);
+        return view('admin/dashboard', $data);
     }
 }

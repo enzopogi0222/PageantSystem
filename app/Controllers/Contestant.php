@@ -21,6 +21,6 @@ class Contestant extends BaseController
             'csrf_token' => csrf_hash()
         ];
         
-        return view('contestants', $data);
+        return view('admin/contestants', $data);
     }
 }
