@@ -395,3 +395,334 @@ in APPPATH\Views\Admin\judges.php on line 191.
 11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
 DEBUG - 2025-10-15 15:17:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-10-15 15:17:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 15:20:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:23:17 --> ErrorException: Undefined variable $system_name
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 6.
+ 1 APPPATH\Views\Admin\rounds.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $system_name', 'C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php', 6)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 5 APPPATH\Controllers\Rounds.php(12): view('admin/rounds')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:24:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:24:37 --> ErrorException: include(includes/admin_styles.php): Failed to open stream: No such file or directory
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 9.
+ 1 APPPATH\Views\Admin\rounds.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(includes/admin_styles.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php', 9)
+ 2 APPPATH\Views\Admin\rounds.php(9): include()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 6 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:24:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:24:38 --> ErrorException: include(includes/admin_styles.php): Failed to open stream: No such file or directory
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 9.
+ 1 APPPATH\Views\Admin\rounds.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(includes/admin_styles.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php', 9)
+ 2 APPPATH\Views\Admin\rounds.php(9): include()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 6 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:24:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:24:38 --> ErrorException: include(includes/admin_styles.php): Failed to open stream: No such file or directory
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 9.
+ 1 APPPATH\Views\Admin\rounds.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(includes/admin_styles.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php', 9)
+ 2 APPPATH\Views\Admin\rounds.php(9): include()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 6 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:24:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:24:39 --> ErrorException: include(includes/admin_styles.php): Failed to open stream: No such file or directory
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 9.
+ 1 APPPATH\Views\Admin\rounds.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(includes/admin_styles.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php', 9)
+ 2 APPPATH\Views\Admin\rounds.php(9): include()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 6 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:25:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:25:43 --> ErrorException: include(includes/admin_styles.php): Failed to open stream: No such file or directory
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 9.
+ 1 APPPATH\Views\Admin\rounds.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(includes/admin_styles.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php', 9)
+ 2 APPPATH\Views\Admin\rounds.php(9): include()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 6 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:25:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:25:44 --> ErrorException: include(includes/admin_styles.php): Failed to open stream: No such file or directory
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 9.
+ 1 APPPATH\Views\Admin\rounds.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(includes/admin_styles.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php', 9)
+ 2 APPPATH\Views\Admin\rounds.php(9): include()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\PageantSystem\\app\\Views\\Admin\\rounds.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 6 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:30:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:30:56 --> Error: Call to undefined function generate_csrf_token()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 261.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:31:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:31:35 --> Error: Call to undefined function generate_csrf_token()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 306.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:31:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:31:36 --> Error: Call to undefined function generate_csrf_token()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 306.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:31:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:31:37 --> Error: Call to undefined function generate_csrf_token()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 306.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:31:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:31:49 --> Error: Call to undefined function generate_csrf_token()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 306.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:31:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:31:50 --> Error: Call to undefined function generate_csrf_token()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 306.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:32:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:32:01 --> Error: Call to undefined function form_open()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 344.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:32:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:32:02 --> Error: Call to undefined function form_open()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 344.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:32:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:32:19 --> Error: Call to undefined function form_open()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 392.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:32:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:32:20 --> Error: Call to undefined function form_open()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 392.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:32:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:32:51 --> Error: Call to undefined function form_open()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 417.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:32:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:32:52 --> Error: Call to undefined function form_open()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 417.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:33:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:33:00 --> Error: Call to undefined function form_open()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 442.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-15 15:33:01 --> Error: Call to undefined function form_open()
+[Method: GET, Route: rounds]
+in APPPATH\Views\Admin\rounds.php on line 442.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/rounds', [], true)
+ 4 APPPATH\Controllers\Rounds.php(23): view('admin/rounds', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rounds->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rounds))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\PageantSystem\\public\\index.php')
+DEBUG - 2025-10-15 15:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 15:33:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 15:33:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
