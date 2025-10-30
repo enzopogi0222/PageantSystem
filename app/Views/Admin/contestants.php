@@ -1,101 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contestant Management - <?php echo htmlspecialchars($system_name); ?></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: <?php echo $primary_color; ?>;
-            --secondary-color: <?php echo $secondary_color; ?>;
-            --accent-color: <?php echo $accent_color; ?>;
-        }
-        
-        .sidebar {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            min-height: 100vh;
-            color: white;
-        }
-        .sidebar .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            transition: all 0.3s;
-        }
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
-            color: white;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            border: none;
-        }
-    </style>
-    <style>
-        .contestant-photo {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        .status-badge {
-            font-size: 0.75rem;
-        }
-        .stat-card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s;
-        }
-    </style>
-</head>
-<body>
+<?= $this->extend('layouts/template') ?>
+<?= $this->section('content') ?>
+
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 sidebar">
-                <div class="p-3">
-                    <h4 class="mb-4"><?php echo htmlspecialchars($system_name ?? 'Pageant System'); ?></h4>
-                    
-                    <nav class="nav flex-column">
-                        <a class="nav-link" href="/dashboard">
-                            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
-                        </a>
-                        <a class="nav-link active" href="/contestant">
-                            <i class="fas fa-users me-2"></i> Contestants
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-gavel me-2"></i> Judges
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-trophy me-2"></i> Rounds
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-chart-line me-2"></i> Results
-                        </a>
-                        
-                        <hr class="my-3" style="border-color: rgba(255,255,255,0.2);">
-                        
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-cog me-2"></i> Settings
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-sign-out-alt me-2"></i> Logout
-                        </a>
-                    </nav>
-                </div>
-            </div>
-            
             <!-- Main Content -->
-            <div class="col-md-9 col-lg-10">
-                <div class="p-4">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h1>Contestant Management</h1>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContestantModal">
-                            <i class="fas fa-plus me-2"></i> Add Contestant
-                        </button>
+            <div class="col-12 page-section">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <h2 class="mb-0"><i class="fas fa-users me-2"></i> Contestants</h2>
                     </div>
+                    <p class="text-muted mb-4">Manage contestant profiles, photos, and registration details.</p>
                     
                     <?php if ($success_message): ?>
                         <div class="alert alert-success alert-dismissible fade show">
@@ -114,9 +27,12 @@
                     <?php endif; ?>
                     
                     <!-- Contestants Table -->
-                    <div class="card">
-                        <div class="card-header">
+                    <div class="card card-soft">
+                        <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">All Contestants (<?php echo count($contestants); ?>)</h5>
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addContestantModal">
+                                <i class="fas fa-plus me-2"></i> Add Contestant
+                            </button>
                         </div>
                         <div class="card-body">
                             <?php if (empty($contestants)): ?>
@@ -195,8 +111,8 @@
                                 </div>
                             <?php endif; ?>
                         </div>
-                    </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
@@ -379,7 +295,9 @@
         <input type="hidden" name="update_status" value="1">
     </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
     <script>
         function changeStatus(contestantId, status) {
             const statusText = status === 'qualified' ? 'qualify' : 'disqualify';
@@ -390,69 +308,10 @@
             }
         }
         
-        function viewContestant(contestantId) {
-            // Fetch contestant details via AJAX
-            fetch(`api/get_contestant_details.php?id=${contestantId}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        const contestant = data.contestant;
-                        
-                        // Populate modal with contestant data
-                        document.getElementById('contestantPhoto').src = contestant.profile_photo ? 
-                            `../uploads/profiles/${contestant.profile_photo}` : 
-                            '../uploads/profiles/default-avatar.png';
-                        document.getElementById('contestantName').textContent = 
-                            `${contestant.first_name} ${contestant.last_name}`;
-                        document.getElementById('contestantNumber').textContent = 
-                            contestant.contestant_number || 'Not assigned';
-                        document.getElementById('contestantAge').textContent = 
-                            contestant.age ? `${contestant.age} years` : 'Not specified';
-                        document.getElementById('contestantEmail').textContent = 
-                            contestant.email || 'Not provided';
-                        document.getElementById('contestantPhone').textContent = 
-                            contestant.phone || 'Not provided';
-                        document.getElementById('contestantHeight').textContent = 
-                            contestant.height || 'Not specified';
-                        document.getElementById('contestantWeight').textContent = 
-                            contestant.weight || 'Not specified';
-                        document.getElementById('contestantHometown').textContent = 
-                            contestant.hometown || 'Not specified';
-                        document.getElementById('contestantEducation').textContent = 
-                            contestant.education || 'Not specified';
-                        document.getElementById('contestantOccupation').textContent = 
-                            contestant.occupation || 'Not specified';
-                        document.getElementById('contestantTalents').textContent = 
-                            contestant.talents || 'Not specified';
-                        document.getElementById('contestantBio').textContent = 
-                            contestant.bio || 'No bio available';
-                        document.getElementById('contestantCreated').textContent = 
-                            new Date(contestant.created_at).toLocaleDateString();
-                        
-                        // Set status badge
-                        const statusBadge = document.getElementById('contestantStatus');
-                        statusBadge.textContent = contestant.status.charAt(0).toUpperCase() + contestant.status.slice(1);
-                        statusBadge.className = 'badge ' + 
-                            (contestant.status === 'qualified' ? 'bg-success' : 
-                             contestant.status === 'registered' ? 'bg-warning' : 'bg-danger');
-                        
-                        // Show modal
-                        new bootstrap.Modal(document.getElementById('viewContestantModal')).show();
-                    } else {
-                        alert('Error loading contestant details: ' + data.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error loading contestant details');
-                });
-        }
-        
         function editContestant() {
             // Close view modal and open edit modal (to be implemented)
             bootstrap.Modal.getInstance(document.getElementById('viewContestantModal')).hide();
             alert('Edit contestant feature - to be implemented');
         }
     </script>
-</body>
-</html>
+<?= $this->endSection() ?>

@@ -1,0 +1,53 @@
+/* =====================================================================
+   SHARED
+   - Global components and utilities used across pages
+   ===================================================================== */
+
+/* Header/Nav */
+.floating-nav-wrap { position: sticky; top: 12px; z-index: 1030; padding: 0 12px; margin-bottom: 24px; }
+.floating-title { width: calc(100% - 24px); max-width: none; margin: 0 auto 8px auto; text-align: center; }
+.floating-title .title-pill { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: 999px; color: #fff; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); box-shadow: 0 8px 24px rgba(0,0,0,.12); border: 1px solid rgba(255,255,255,0.22); font-weight: 700; letter-spacing: .3px; backdrop-filter: saturate(160%) blur(8px); -webkit-backdrop-filter: saturate(160%) blur(8px); }
+@media (max-width: 575.98px) { .floating-title .title-pill { padding: .4rem .8rem; font-size: .95rem; } }
+
+.header-gradient { background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); }
+.floating-nav { border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); overflow: visible; width: calc(100% - 24px); max-width: none; margin: 0 auto; background: linear-gradient(135deg, rgba(111,66,193,0.85) 0%, rgba(73,80,87,0.85) 100%); backdrop-filter: saturate(180%) blur(16px); -webkit-backdrop-filter: saturate(180%) blur(16px); border: 1px solid rgba(255,255,255,0.18); position: relative; }
+
+/* Navbar */
+.navbar-brand { font-weight: 600; letter-spacing: .2px; }
+.navbar .nav-link { color: rgba(255,255,255,0.92); padding: .5rem .9rem; border-radius: 10px; transition: color .2s ease, background-color .2s ease, transform .2s ease; }
+.navbar .nav-link:hover { color: #fff; background-color: rgba(255,255,255,0.12); }
+.navbar .nav-link.active { color: #fff; background-color: rgba(255,255,255,0.18); }
+.navbar .navbar-nav .nav-item + .nav-item { margin-left: .75rem; }
+.navbar-divider { display: none; }
+.navbar .dropdown-menu { border-radius: 12px; box-shadow: 0 12px 24px rgba(0,0,0,.18); border: 1px solid rgba(0,0,0,.06); margin-top: .5rem; overflow: hidden; }
+.navbar .dropdown-item i { width: 18px; }
+@media (max-width: 991.98px) { .navbar .nav-link { border-radius: 8px; } }
+
+/* Utilities/Components */
+.btn-primary { background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important; border: none !important; }
+.status-badge { padding: 5px 10px; border-radius: 20px; font-size: 0.8em; }
+.status-active { background-color: #d4edda; color: #155724; }
+.status-inactive { background-color: #f8d7da; color: #721c24; }
+.status-upcoming { background-color: #fff3cd; color: #856404; }
+.status-completed { background-color: #f8d7da; color: #721c24; }
+.page-section { padding: 1.5rem; }
+.card-soft { border: none; border-radius: 14px; box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+.card-soft .card-header { background: transparent; border-bottom: 1px solid rgba(0,0,0,.05); }
+.section-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: .75rem; }
+.section-title h5 { margin: 0; font-weight: 600; }
+
+/* Shared Metrics Grid */
+.stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+@media (max-width: 991.98px) { .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 575.98px) { .stat-grid { grid-template-columns: 1fr; } }
+.stat-item { display: flex; align-items: center; gap: .9rem; padding: 1rem; border-radius: 12px; background: #fff; box-shadow: 0 6px 16px rgba(0,0,0,.05); }
+.stat-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: #fff; font-size: 1.1rem; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); }
+.stat-text h3 { margin: 0; font-weight: 700; font-size: 1.35rem; }
+.stat-text small { color: #6c757d; }
+
+/* Rank Badges */
+.rank-badge { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; }
+.rank-1 { background: linear-gradient(135deg, #ffd700, #ffed4e); color: #333; }
+.rank-2 { background: linear-gradient(135deg, #c0c0c0, #e8e8e8); color: #333; }
+.rank-3 { background: linear-gradient(135deg, #cd7f32, #deb887); }
+.rank-other { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); }

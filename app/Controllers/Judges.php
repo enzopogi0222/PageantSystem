@@ -10,15 +10,48 @@ class Judges extends BaseController
     {
         // Sample data - replace with your actual data
         $data = [
-            'system_name' => 'Pageant System',
+            'system_name' => 'Pageant Management System',
             'primary_color' => '#6f42c1', // Purple
             'secondary_color' => '#495057', // Gray
             'accent_color' => '#28a745', // Green
-            'judges' => [], // Empty array for now - replace with your judges data
+            // Demo data so the table renders; replace with real DB results later
+            'judges' => [
+                [
+                    'id' => 1,
+                    'first_name' => 'Alice',
+                    'last_name'  => 'Santos',
+                    'username'   => 'alice',
+                    'email'      => 'alice@example.com',
+                    'status'     => 'active',
+                    'created_at' => date('Y-m-d', strtotime('-7 days')),
+                ],
+                [
+                    'id' => 2,
+                    'first_name' => 'Brian',
+                    'last_name'  => 'Reyes',
+                    'username'   => 'brian',
+                    'email'      => 'brian@example.com',
+                    'status'     => 'inactive',
+                    'created_at' => date('Y-m-d', strtotime('-3 days')),
+                ],
+                [
+                    'id' => 3,
+                    'first_name' => 'Carla',
+                    'last_name'  => 'Lopez',
+                    'username'   => 'carla',
+                    'email'      => 'carla@example.com',
+                    'status'     => 'active',
+                    'created_at' => date('Y-m-d'),
+                ],
+            ],
             'message' => session()->getFlashdata('message') ?? '',
             'error' => session()->getFlashdata('error') ?? ''
         ];
 
-        return view('admin/judges', $data);
+        try {
+            return view('Admin/judges', $data);
+        } catch (\Throwable $e) {
+            return 'View error in admin/judges: ' . $e->getMessage();
+        }
     }
 }

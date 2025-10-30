@@ -35,4 +35,18 @@ class Admin extends BaseController
         
         return view('admin/dashboard', $data);
     }
+
+    public function dashboardStats()
+    {
+        // TODO: Replace with real DB queries once models are available
+        $response = [
+            'success' => true,
+            'total_contestants' => 0,
+            'total_judges' => 0,
+            'total_rounds' => 0,
+            'scores_submitted' => 0,
+        ];
+
+        return $this->response->setJSON($response);
+    }
 }

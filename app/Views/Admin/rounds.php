@@ -1,127 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rounds & Criteria - <?php echo htmlspecialchars($system_name); ?></title>
-    <style>
-        :root {
-            --primary-color: <?php echo $primary_color ?? '#6f42c1'; ?>;
-            --secondary-color: <?php echo $secondary_color ?? '#495057'; ?>;
-            --accent-color: <?php echo $accent_color ?? '#28a745'; ?>;
-        }
-        
-        body {
-            background-color: #f8f9fa;
-            color: #212529;
-        }
-        
-        .sidebar {
-            min-height: 100vh;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            padding: 20px 0;
-        }
-        
-        .nav-link {
-            color: var(--secondary-color);
-            padding: 10px 20px;
-            margin: 2px 10px;
-            border-radius: 5px;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .main-content {
-            padding: 20px;
-        }
-        
-        .card {
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
-        }
-        
-        .card-header {
-            background-color: #fff;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            font-weight: 600;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .btn-primary:hover {
-            background-color: #5a32a3;
-            border-color: #5a32a3;
-        }
-        
-        .main-content {
-            background-color: #f8f9fa;
-            min-height: 100vh;
-        }
-        
-        .status-badge {
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8em;
-        }
-        
-        .status-upcoming {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .status-active {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .status-completed {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-    </style>
-</head>
-<body>
+<?= $this->extend('layouts/template') ?>
+<?= $this->section('content') ?>
+
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 sidebar">
-                <div class="p-3">
-                    <h4 class="mb-4"><?php echo htmlspecialchars($system_name ?? 'Pageant System') ?></h4>
-                    
-                    <nav class="nav flex-column">
-                        <a class="nav-link" href="/dashboard">
-                            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
-                        </a>
-                        <a class="nav-link" href="/contestant">
-                            <i class="fas fa-users me-2"></i> Contestants
-                        </a>
-                        <a class="nav-link" href="/judges">
-                            <i class="fas fa-gavel me-2"></i> Judges
-                        </a>
-                        <a class="nav-link active" href="/rounds">
-                            <i class="fas fa-trophy me-2"></i> Rounds
-                        </a>
-                    </nav>
-                </div>
-            </div>
-            
             <!-- Main Content -->
-            <div class="col-md-9 col-lg-10 main-content p-4">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h2><i class="fas fa-trophy me-2"></i> Rounds & Criteria Management</h2>
+            <div class="col-12 page-section">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h2 class="mb-0"><i class="fas fa-trophy me-2"></i> Rounds & Criteria Management</h2>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRoundModal">
                         <i class="fas fa-plus me-2"></i> Add Round
                     </button>
                 </div>
+                <p class="text-muted mb-4">Create rounds, define criteria, and control the competition flow.</p>
                 
                 <?php if ($message): ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -146,7 +36,7 @@
                     </div>
                 <?php else: ?>
                     <?php foreach ($rounds_with_criteria as $round): ?>
-                        <div class="card">
+                        <div class="card card-soft">
                             <div class="round-header">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
@@ -198,7 +88,7 @@
                                     <div class="row">
                                         <?php foreach ($round['criteria'] as $criteria): ?>
                                             <div class="col-md-6">
-                                                <div class="criteria-item">
+                                                <div class="criteria-item card-soft p-3">
                                                     <div class="d-flex justify-content-between align-items-start">
                                                         <div>
                                                             <strong><?php echo htmlspecialchars($criteria['name']); ?></strong>
@@ -457,14 +347,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" name="update_round_status" class="btn btn-primary" id="status_confirm_btn">Confirm</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         // Initialize tooltips
@@ -543,8 +425,7 @@
                 timer: 3000
             });
         }
-    </script>
-    <script>
+        
         function editRound(round) {
             // If round is an ID, fetch the round data
             if (typeof round === 'number' || (typeof round === 'string' && !isNaN(round))) {
@@ -610,5 +491,4 @@
             new bootstrap.Modal(document.getElementById('statusModal')).show();
         }
     </script>
-</body>
-</html>
+<?= $this->endSection() ?>

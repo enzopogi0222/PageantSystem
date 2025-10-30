@@ -1,107 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Judge Management - <?php echo htmlspecialchars($system_name); ?></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: <?php echo $primary_color; ?>;
-            --secondary-color: <?php echo $secondary_color; ?>;
-            --accent-color: <?php echo $accent_color; ?>;
-        }
-        
-        .sidebar {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            min-height: 100vh;
-            color: white;
-        }
-        .sidebar .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            transition: all 0.3s;
-        }
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
-            color: white;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            border: none;
-        }
-    </style>
-    <style>
-        .judge-photo {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        
-        .status-badge {
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8em;
-        }
-        
-        .status-active {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .status-inactive {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-    </style>
-</head>
-<body>
+<?= $this->extend('layouts/template') ?>
+<?= $this->section('content') ?>
+
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 sidebar">
-                <div class="p-3">
-                    <h4 class="mb-4"><?php echo htmlspecialchars($system_name ?? 'Pageant System'); ?></h4>
-                    
-                    <nav class="nav flex-column">
-                        <a class="nav-link" href="/dashboard">
-                            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
-                        </a>
-                        <a class="nav-link" href="/contestant">
-                            <i class="fas fa-users me-2"></i> Contestants
-                        </a>
-                        <a class="nav-link active" href="/judges">
-                            <i class="fas fa-gavel me-2"></i> Judges
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-trophy me-2"></i> Rounds
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-chart-line me-2"></i> Results
-                        </a>
-                        
-                        <hr class="my-3" style="border-color: rgba(255,255,255,0.2);">
-                        
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-cog me-2"></i> Settings
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-sign-out-alt me-2"></i> Logout
-                        </a>
-                    </nav>
-                </div>
-            </div>
-            
             <!-- Main Content -->
-            <div class="col-md-9 col-lg-10 main-content p-4">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h2><i class="fas fa-gavel me-2"></i> Judge Management</h2>
+            <div class="col-12 page-section">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h2 class="mb-0"><i class="fas fa-gavel me-2"></i> Judge Management</h2>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJudgeModal">
                         <i class="fas fa-plus me-2"></i> Add Judge
                     </button>
                 </div>
+                <p class="text-muted mb-4">Manage judges, update details, reset passwords, and remove access.</p>
                 
                 <?php if ($message): ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -118,7 +28,7 @@
                 <?php endif; ?>
                 
                 <!-- Judges Table -->
-                <div class="card">
+                <div class="card card-soft">
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-hover">
@@ -154,15 +64,15 @@
                                                 <td><?php echo date('M j, Y', strtotime($judge['created_at'])); ?></td>
                                                 <td>
                                                     <button class="btn btn-sm btn-outline-primary me-1" 
-                                                            onclick="editJudge(<?php echo htmlspecialchars(json_encode($judge)); ?>)">
+                                                            onclick='editJudge(<?= json_encode($judge, JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_AMP|JSON_HEX_QUOT) ?>)'>
                                                         <i class="fas fa-edit"></i>
                                                     </button>
                                                     <button class="btn btn-sm btn-outline-warning me-1" 
-                                                            onclick="resetPassword(<?php echo $judge['id']; ?>, '<?php echo htmlspecialchars($judge['first_name'] . ' ' . $judge['last_name']); ?>')">
+                                                            onclick="resetPassword(<?= (int)$judge['id'] ?>, '<?= htmlspecialchars($judge['first_name'] . ' ' . $judge['last_name'], ENT_QUOTES) ?>')">
                                                         <i class="fas fa-key"></i>
                                                     </button>
                                                     <button class="btn btn-sm btn-outline-danger" 
-                                                            onclick="deleteJudge(<?php echo $judge['id']; ?>, '<?php echo htmlspecialchars($judge['first_name'] . ' ' . $judge['last_name']); ?>')">
+                                                            onclick="deleteJudge(<?= (int)$judge['id'] ?>, '<?= htmlspecialchars($judge['first_name'] . ' ' . $judge['last_name'], ENT_QUOTES) ?>')">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </td>
@@ -186,9 +96,9 @@
                     <h5 class="modal-title">Add New Judge</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <form method="POST">
+                <form action="/judges/create" method="POST">
                     <div class="modal-body">
-                      
+                        <?= csrf_field() ?>
                         
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -302,21 +212,17 @@
             </div>
         </div>
     </div>
-    
-    <!-- Delete Judge Modal -->
     <div class="modal fade" id="deleteJudgeModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Delete Judge</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form action="/judges/delete" method="POST">
                     <div class="modal-body">
                         <?= csrf_field() ?>
                         <input type="hidden" name="judge_id" id="delete_judge_id">
                         <input type="hidden" name="_method" value="DELETE">
-                        
                         <p>Are you sure you want to delete: <strong id="delete_judge_name"></strong>?</p>
                         <p class="text-danger">This action cannot be undone.</p>
                     </div>
@@ -328,8 +234,9 @@
             </div>
         </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         // Handle form submissions with fetch API
@@ -339,7 +246,7 @@
             if (addForm) {
                 addForm.addEventListener('submit', handleFormSubmit);
             }
-
+            
             // Edit Judge Form
             const editForm = document.querySelector('form[action="/judges/update"]');
             if (editForm) {
@@ -380,7 +287,7 @@
 
                 if (response.ok) {
                     showSuccess(result.message || 'Operation completed successfully');
-                    // Reload the page after 1.5 seconds
+                    // Reload after short delay
                     setTimeout(() => window.location.reload(), 1500);
                 } else {
                     throw new Error(result.message || 'An error occurred');
@@ -414,29 +321,26 @@
             });
         }
 
+        // Helpers to open modals with data
         function editJudge(judge) {
             document.getElementById('edit_judge_id').value = judge.id;
             document.getElementById('edit_first_name').value = judge.first_name;
             document.getElementById('edit_last_name').value = judge.last_name;
             document.getElementById('edit_email').value = judge.email;
             document.getElementById('edit_status').value = judge.status;
-            
             new bootstrap.Modal(document.getElementById('editJudgeModal')).show();
         }
-        
+
         function resetPassword(judgeId, judgeName) {
             document.getElementById('reset_judge_id').value = judgeId;
             document.getElementById('reset_judge_name').textContent = judgeName;
-            
             new bootstrap.Modal(document.getElementById('resetPasswordModal')).show();
         }
-        
+
         function deleteJudge(judgeId, judgeName) {
             document.getElementById('delete_judge_id').value = judgeId;
             document.getElementById('delete_judge_name').textContent = judgeName;
-            
             new bootstrap.Modal(document.getElementById('deleteJudgeModal')).show();
         }
     </script>
-</body>
-</html>
+<?= $this->endSection() ?>
