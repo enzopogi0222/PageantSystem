@@ -10,7 +10,6 @@ class Rounds extends BaseController
     public function index()
     {
          $data = [
-            'system_name' => 'Pageant System',
             'primary_color' => '#6f42c1',
             'secondary_color' => '#495057',
             'accent_color' => '#28a745',

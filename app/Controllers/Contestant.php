@@ -11,7 +11,6 @@ class Contestant extends BaseController
     {
         // Sample data - replace with actual database queries
         $data = [
-            'system_name' => 'Pageant Management System',
             'primary_color' => '#6f42c1',
             'secondary_color' => '#495057',
             'accent_color' => '#28a745',

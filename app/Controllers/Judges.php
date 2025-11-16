@@ -10,7 +10,6 @@ class Judges extends BaseController
     {
         // Sample data - replace with your actual data
         $data = [
-            'system_name' => 'Pageant Management System',
             'primary_color' => '#6f42c1', // Purple
             'secondary_color' => '#495057', // Gray
             'accent_color' => '#28a745', // Green

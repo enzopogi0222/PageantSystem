@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+        // Resolve system name globally using the latest event if not explicitly provided
+        if (!isset($system_name) || empty($system_name)) {
+            try {
+                $em = new \App\Models\EventModel();
+                // Prefer active event if present
+                $active = $em->where('is_active', 1)->orderBy('id', 'DESC')->first();
+                if ($active && !empty($active['name'])) {
+                    $system_name = $active['name'];
+                } else {
+                    $latest = $em->orderBy('id', 'DESC')->first();
+                    if ($latest && !empty($latest['name'])) {
+                        $system_name = $latest['name'];
+                    }
+                }
+            } catch (\Throwable $e) {
+                // ignore if table not yet migrated
+            }
+        }
+    ?>
     <title><?= esc($title ?? ($system_name ?? 'Pageant Management System')) ?></title>
 
     <!-- Bootstrap CSS -->
@@ -47,10 +67,15 @@
 <body>
 
     <!-- Header (floating, already styled inside partial) -->
+    <?php if (empty($hide_header) || !$hide_header): ?>
     <?= view('partials/header', [
-        'system_name' => $system_name ?? 'Pageant Management System',
-        'page_title'  => $page_title ?? null,
+        'system_name'   => $system_name ?? 'Pageant Management System',
+        'page_title'    => $page_title ?? null,
+        'user_greeting' => $user_greeting ?? null,
+        'hide_center_nav' => $hide_center_nav ?? false,
+        'logout_url'    => $logout_url ?? null,
     ]) ?>
+    <?php endif; ?>
 
     <!-- Main Content Wrapper -->
     <div class="main-wrapper">
