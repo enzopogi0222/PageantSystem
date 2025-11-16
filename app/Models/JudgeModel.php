@@ -14,6 +14,7 @@ class JudgeModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'user_id',
+        'event_id',
         'first_name',
         'last_name',
         'email',

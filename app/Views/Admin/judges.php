@@ -96,7 +96,7 @@
                     <h5 class="modal-title">Add New Judge</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-              <form action="<?= site_url('judges/create') ?>" method="POST">
+              <form action="<?= site_url('events/' . $event_id . '/judges/create') ?>" method="POST">
                     <div class="modal-body">
                         <?= csrf_field() ?>
                         

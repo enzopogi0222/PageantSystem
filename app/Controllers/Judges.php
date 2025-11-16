@@ -5,11 +5,11 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\JudgeModel;
 use App\Models\UserModel;
-
+use App\Models\EventModel;
 class Judges extends BaseController
 {
 
-    public function index()
+    public function index($eventId)
     {
         $judgeModel = new JudgeModel();
 
@@ -17,6 +17,7 @@ class Judges extends BaseController
         $judges = $judgeModel
             ->select('judges.*, users.username')
             ->join('users', 'users.id = judges.user_id', 'left')
+            ->where('judges.event_id', $eventId) 
             ->findAll();
 
         $data = [
@@ -24,6 +25,8 @@ class Judges extends BaseController
             'secondary_color' => '#495057',
             'accent_color'    => '#28a745',
             'judges'          => $judges,
+            'event_id'        => $eventId,          
+            'active_event_id' => $eventId,          
             'message'         => session()->getFlashdata('message') ?? '',
             'error'           => session()->getFlashdata('error') ?? '',
         ];
@@ -31,8 +34,14 @@ class Judges extends BaseController
         return view('Admin/judges', $data);
     }
 
-    public function create()
+    public function create($eventId = null)
     {
+
+        if (empty($eventId)) {
+        throw new \RuntimeException('Missing eventId when creating judge');
+    }
+
+        
         // Validation
         $rules = [
             'first_name' => 'required|min_length[2]|max_length[100]',
@@ -82,6 +91,7 @@ class Judges extends BaseController
 
             $judgeData = [
                 'user_id'          => $userId,
+                'event_id'         => $eventId,
                 'first_name'       => $this->request->getPost('first_name'),
                 'last_name'        => $this->request->getPost('last_name'),
                 'email'            => $this->request->getPost('email'),
@@ -101,7 +111,7 @@ class Judges extends BaseController
             }
 
             return redirect()
-                ->to('/judges')
+                ->to("/events/{$eventId}/judges")
                 ->with('message', 'Judge added successfully');
         } catch (\Throwable $e) {
             log_message('error', 'Error Creating Judge: {error}', ['error' => $e->getMessage()]);
