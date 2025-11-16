@@ -62,8 +62,8 @@
                                             <?php foreach ($contestants as $c): ?>
                                                 <tr>
                                                     <td>
-                                                        <?php if ($c['profile_photo']): ?>
-                                                            <img src="../uploads/profiles/<?php echo htmlspecialchars($c['profile_photo']); ?>" 
+                                                        <?php if (!empty($c['photo_path'])): ?>
+                                                            <img src="../uploads/profiles/<?php echo htmlspecialchars($c['photo_path']); ?>" 
                                                                  class="contestant-photo" alt="Photo">
                                                         <?php else: ?>
                                                             <div class="contestant-photo bg-light d-flex align-items-center justify-content-center">
@@ -78,14 +78,15 @@
                                                             <br><small class="text-muted"><?php echo htmlspecialchars($c['email']); ?></small>
                                                         </div>
                                                     </td>
-                                                    <td><?php echo $c['age'] ? $c['age'] . ' years' : '-'; ?></td>
-                                                    <td><?php echo htmlspecialchars($c['hometown'] ?: '-'); ?></td>
+                                                    <td><?php echo (isset($c['age']) && $c['age']) ? $c['age'] . ' years' : '-'; ?></td>
+                                                    <td><?php echo !empty($c['hometown']) ? htmlspecialchars($c['hometown']) : '-'; ?></td>
                                                     <td>
+                                                        <?php $status = $c['status'] ?? 'active'; ?>
                                                         <span class="badge status-badge bg-<?php 
-                                                            echo $c['status'] === 'qualified' ? 'success' : 
-                                                                ($c['status'] === 'registered' ? 'warning' : 'danger'); 
+                                                            echo $status === 'active' ? 'success' : 
+                                                                ($status === 'withdrawn' ? 'warning' : 'danger'); 
                                                         ?>">
-                                                            <?php echo ucfirst($c['status']); ?>
+                                                            <?php echo ucfirst($status); ?>
                                                         </span>
                                                     </td>
                                                     <td>
@@ -204,7 +205,7 @@
                     <h5 class="modal-title">Add New Contestant</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <form method="POST" enctype="multipart/form-data">
+                <form method="POST" action="<?= site_url('events/' . ($active_event_id ?? 0) . '/contestants/create') ?>" enctype="multipart/form-data">
                     <div class="modal-body">
                         <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                         

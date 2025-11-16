@@ -74,10 +74,12 @@
             $activeClass = ($isCurrentPage || $isHomeDashboard) ? 'active' : '';
             
             if ($key === 'judges' && $activeEventId) {
-               $href = base_url('events/' . $activeEventId . '/judges');
-               } else {
-                   $href = base_url($item['url']);
-              }
+                $href = base_url('events/' . $activeEventId . '/judges');
+            } elseif ($key === 'contestants' && $activeEventId) {
+                $href = base_url('events/' . $activeEventId . '/contestants');
+            } else {
+                $href = base_url($item['url']);
+            }
         ?>
           <li class="nav-item">
             <a class="nav-link <?= $activeClass ?>" href="<?= $href ?>">
