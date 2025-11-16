@@ -54,7 +54,7 @@
                                         <?php foreach ($judges as $judge): ?>
                                             <tr>
                                                 <td><?php echo htmlspecialchars($judge['first_name'] . ' ' . $judge['last_name']); ?></td>
-                                                <td><?php echo htmlspecialchars($judge['username']); ?></td>
+                                                <td><?php echo htmlspecialchars($judge['username'] ?? ''); ?></td>
                                                 <td><?php echo htmlspecialchars($judge['email']); ?></td>
                                                 <td>
                                                     <span class="status-badge status-<?php echo $judge['status']; ?>">
@@ -96,7 +96,7 @@
                     <h5 class="modal-title">Add New Judge</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <form action="/judges/create" method="POST">
+              <form action="<?= site_url('judges/create') ?>" method="POST">
                     <div class="modal-body">
                         <?= csrf_field() ?>
                         
@@ -242,7 +242,7 @@
         // Handle form submissions with fetch API
         document.addEventListener('DOMContentLoaded', function() {
             // Add Judge Form
-            const addForm = document.querySelector('form[action="/judges/create"]');
+          const addForm = document.querySelector('#addJudgeModal form');
             if (addForm) {
                 addForm.addEventListener('submit', handleFormSubmit);
             }

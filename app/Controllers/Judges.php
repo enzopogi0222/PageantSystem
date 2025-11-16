@@ -3,54 +3,122 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\JudgeModel;
+use App\Models\UserModel;
 
 class Judges extends BaseController
 {
+
     public function index()
     {
-        // Sample data - replace with your actual data
+        $judgeModel = new JudgeModel();
+
+        // Join judges with users to get username
+        $judges = $judgeModel
+            ->select('judges.*, users.username')
+            ->join('users', 'users.id = judges.user_id', 'left')
+            ->findAll();
+
         $data = [
-            'primary_color' => '#6f42c1', // Purple
-            'secondary_color' => '#495057', // Gray
-            'accent_color' => '#28a745', // Green
-            // Demo data so the table renders; replace with real DB results later
-            'judges' => [
-                [
-                    'id' => 1,
-                    'first_name' => 'Alice',
-                    'last_name'  => 'Santos',
-                    'username'   => 'alice',
-                    'email'      => 'alice@example.com',
-                    'status'     => 'active',
-                    'created_at' => date('Y-m-d', strtotime('-7 days')),
-                ],
-                [
-                    'id' => 2,
-                    'first_name' => 'Brian',
-                    'last_name'  => 'Reyes',
-                    'username'   => 'brian',
-                    'email'      => 'brian@example.com',
-                    'status'     => 'inactive',
-                    'created_at' => date('Y-m-d', strtotime('-3 days')),
-                ],
-                [
-                    'id' => 3,
-                    'first_name' => 'Carla',
-                    'last_name'  => 'Lopez',
-                    'username'   => 'carla',
-                    'email'      => 'carla@example.com',
-                    'status'     => 'active',
-                    'created_at' => date('Y-m-d'),
-                ],
-            ],
-            'message' => session()->getFlashdata('message') ?? '',
-            'error' => session()->getFlashdata('error') ?? ''
+            'primary_color'   => '#6f42c1',
+            'secondary_color' => '#495057',
+            'accent_color'    => '#28a745',
+            'judges'          => $judges,
+            'message'         => session()->getFlashdata('message') ?? '',
+            'error'           => session()->getFlashdata('error') ?? '',
+        ];
+
+        return view('Admin/judges', $data);
+    }
+
+    public function create()
+    {
+        // Validation
+        $rules = [
+            'first_name' => 'required|min_length[2]|max_length[100]',
+            'last_name'  => 'required|min_length[2]|max_length[100]',
+            'username'   => 'required|min_length[3]|max_length[50]',
+            'email'      => 'required|valid_email|max_length[255]',
+            'password'   => 'required|min_length[6]',
+        ];
+
+        if (! $this->validate($rules)) {
+            if ($this->request->isAJAX()) {
+                return $this->response
+                    ->setStatusCode(422)
+                    ->setJSON([
+                        'status'     => 'error',
+                        'message'    => 'Please correct the errors in the form.',
+                        'validation' => $this->validator->getErrors(),
+                    ]);
+            }
+
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', 'Please correct the errors in the form.')
+                ->with('validation', $this->validator);
+        }
+
+        $userModel  = new UserModel();
+        $judgeModel = new JudgeModel();
+
+       
+        $userData = [
+            'username'      => $this->request->getPost('username'),
+            'email'         => $this->request->getPost('email'),
+            'password_hash' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'first_name'    => $this->request->getPost('first_name'),
+            'last_name'     => $this->request->getPost('last_name'),
+            'role'          => 'judge',
         ];
 
         try {
-            return view('Admin/judges', $data);
+            $userId = $userModel->insert($userData);
+
+            if (! $userId) {
+                throw new \RuntimeException('Failed to create user record for judge.');
+            }
+
+            $judgeData = [
+                'user_id'          => $userId,
+                'first_name'       => $this->request->getPost('first_name'),
+                'last_name'        => $this->request->getPost('last_name'),
+                'email'            => $this->request->getPost('email'),
+                'phone'            => null,
+                'specialization'   => null,
+                'experience_years' => 0,
+                'status'           => 'active',
+            ];
+
+            $judgeModel->insert($judgeData);
+
+            if ($this->request->isAJAX()) {
+                return $this->response->setJSON([
+                    'status'  => 'success',
+                    'message' => 'Judge added successfully.',
+                ]);
+            }
+
+            return redirect()
+                ->to('/judges')
+                ->with('message', 'Judge added successfully');
         } catch (\Throwable $e) {
-            return 'View error in admin/judges: ' . $e->getMessage();
+            log_message('error', 'Error Creating Judge: {error}', ['error' => $e->getMessage()]);
+
+            if ($this->request->isAJAX()) {
+                return $this->response
+                    ->setStatusCode(500)
+                    ->setJSON([
+                        'status'  => 'error',
+                        'message' => 'An error occurred while adding the judge. Please try again.',
+                    ]);
+            }
+
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', 'An error occurred while adding the judge. Please try again.');
         }
     }
 }

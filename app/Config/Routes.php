@@ -14,6 +14,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('api/dashboard-stats', 'Admin::dashboardStats');
     $routes->get('contestant', 'Contestant::index');
     $routes->get('judges', 'Judges::index');
+    $routes->post('judges/create', 'Judges::create');
     $routes->get('rounds', 'Rounds::index');
     $routes->get('results', 'Results::index');
 });
