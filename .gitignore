@@ -1,0 +1,14 @@
+# Ignore runtime and environment-specific files
+writable/
+public/uploads/
+.env
+
+# Node/composer/vendor caches (if present)
+node_modules/
+vendor/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

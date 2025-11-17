@@ -30,6 +30,8 @@
             'text' => 'Results',
         ],
     ];
+    
+    $activeEventId = $active_event_id ?? null;
 ?>
 <div class="floating-nav-wrap mb-3">
   <!-- Title above the header bar -->
@@ -70,7 +72,14 @@
             $isCurrentPage = strpos($currentUrl, $item['url']) !== false;
             $isHomeDashboard = uri_string() === '' && $key === 'dashboard';
             $activeClass = ($isCurrentPage || $isHomeDashboard) ? 'active' : '';
-            $href = base_url($item['url']);
+            
+            if ($key === 'judges' && $activeEventId) {
+                $href = base_url('events/' . $activeEventId . '/judges');
+            } elseif ($key === 'contestants' && $activeEventId) {
+                $href = base_url('events/' . $activeEventId . '/contestants');
+            } else {
+                $href = base_url($item['url']);
+            }
         ?>
           <li class="nav-item">
             <a class="nav-link <?= $activeClass ?>" href="<?= $href ?>">

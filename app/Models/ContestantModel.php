@@ -31,7 +31,10 @@ class ContestantModel extends Model
         'bio',
         'gender',
         'status',
-        'photo_path'
+        'photo_path',
+        'event_id',
+        'age',
+        'hometown',
     ];
 
     protected bool $allowEmptyInserts = false;

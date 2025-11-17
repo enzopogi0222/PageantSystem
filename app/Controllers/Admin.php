@@ -19,15 +19,18 @@ class Admin extends BaseController
         
         // Get active event name; if none, use the latest by ID
         $latestEventName = null;
+        $activeEventId   = null;
         try {
             $eventModel = new EventModel();
             $active = $eventModel->where('is_active', 1)->orderBy('id', 'DESC')->first();
             if ($active && !empty($active['name'])) {
                 $latestEventName = $active['name'];
+                $activeEventId   = $active['id'];
             } else {
                 $latest = $eventModel->orderBy('id', 'DESC')->first();
                 if ($latest) {
                     $latestEventName = $latest['name'] ?? null;
+                    $activeEventId   = $latest['id'] ?? null;
                 }
             }
         } catch (\Throwable $e) {
@@ -52,6 +55,7 @@ class Admin extends BaseController
             'allow_public_voting' => false,
             'score_stats' => ['finalized_judges' => 0],
             'latest_event_name' => $latestEventName,
+            'active_event_id'   => $activeEventId, 
         ];
         
         return view('admin/dashboard', $data);
