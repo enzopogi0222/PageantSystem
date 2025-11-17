@@ -6,12 +6,27 @@ use App\Controllers\BaseController;
 use App\Models\JudgeModel;
 use App\Models\UserModel;
 use App\Models\EventModel;
+
 class Judges extends BaseController
 {
 
-    public function index($eventId)
+    public function index($eventId = null)
     {
         $judgeModel = new JudgeModel();
+        // Determine event: use route param if provided, otherwise active event
+        if ($eventId === null) {
+            try {
+                $em = new EventModel();
+                $active = $em->where('is_active', 1)->orderBy('id', 'DESC')->first();
+                if ($active) {
+                    $eventId = (int) $active['id'];
+                }
+            } catch (\Throwable $e) {
+                // ignore if events table missing
+            }
+        } else {
+            $eventId = (int) $eventId;
+        }
 
         // Join judges with users to get username
         $judges = $judgeModel

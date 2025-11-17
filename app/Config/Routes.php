@@ -12,6 +12,9 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->post('events', 'Events::store');
     $routes->post('events/activate/(:num)', 'Events::activate/$1');
     $routes->get('api/dashboard-stats', 'Admin::dashboardStats');
+    $routes->get('events/(:num)/contestants', 'Contestant::index/$1');
+    $routes->get('events/(:num)/judges', 'Judges::index/$1');
+    $routes->post('events/(:num)/judges/create', 'Judges::create/$1');
     $routes->get('contestant', 'Contestant::index');
     $routes->post('contestant', 'Contestant::store');
     $routes->post('contestant/update/(:num)', 'Contestant::update/$1');

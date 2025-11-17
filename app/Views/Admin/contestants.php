@@ -8,6 +8,9 @@
             <div class="col-12 page-section">
                     <div class="d-flex justify-content-between align-items-center mb-1">
                         <h2 class="mb-0"><i class="fas fa-users me-2"></i> Contestants</h2>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContestantModal">
+                            <i class="fas fa-plus me-2"></i> Add Contestant
+                        </button>
                     </div>
                     <p class="text-muted mb-4">Manage contestant profiles, photos, and registration details.</p>
                     
@@ -209,7 +212,7 @@
                     <h5 class="modal-title">Add New Contestant</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <form method="POST" enctype="multipart/form-data">
+                <form method="POST" action="<?= site_url('contestant') ?>" enctype="multipart/form-data">
                     <div class="modal-body">
                         <?= csrf_field() ?>
                         

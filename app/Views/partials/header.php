@@ -31,7 +31,8 @@
         ],
     ];
     
-    $activeEventId = $active_event_id ?? null;
+    // Prefer controller-provided active_event_id, else fall back to session for judges
+    $activeEventId = $active_event_id ?? (session('active_event_id') ?? null);
 ?>
 <div class="floating-nav-wrap mb-3">
   <!-- Title above the header bar -->

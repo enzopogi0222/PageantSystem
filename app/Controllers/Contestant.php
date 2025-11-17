@@ -8,19 +8,22 @@ use App\Models\ContestantModel;
 
 class Contestant extends BaseController
 {
-    public function index()
+    public function index($eventId = null)
     {
         $model = new ContestantModel();
-        // Determine active event
-        $eventId = null;
-        try {
-            $em = new \App\Models\EventModel();
-            $active = $em->where('is_active', 1)->orderBy('id', 'DESC')->first();
-            if ($active) {
-                $eventId = (int) $active['id'];
+        // Determine event: use route param if provided, otherwise active event
+        if ($eventId === null) {
+            try {
+                $em = new \App\Models\EventModel();
+                $active = $em->where('is_active', 1)->orderBy('id', 'DESC')->first();
+                if ($active) {
+                    $eventId = (int) $active['id'];
+                }
+            } catch (\Throwable $e) {
+                // ignore if events table missing
             }
-        } catch (\Throwable $e) {
-            // ignore if events table missing
+        } else {
+            $eventId = (int) $eventId;
         }
 
         $contestants = $eventId ? $model->where('event_id', $eventId)->findAll() : [];

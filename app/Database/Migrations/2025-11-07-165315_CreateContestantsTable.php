@@ -52,6 +52,45 @@ class CreateContestantsTable extends Migration
                 'constraint' => ['male', 'female', 'other'],
                 'null'       => true,
             ],
+            // Profile fields merged from AddContestantProfileFields
+            'age' => [
+                'type' => 'INT',
+                'constraint' => 3,
+                'null' => true,
+            ],
+            'hometown' => [
+                'type' => 'VARCHAR',
+                'constraint' => 150,
+                'null' => true,
+            ],
+            'height' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+                'null' => true,
+            ],
+            'weight' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+                'null' => true,
+            ],
+            'education' => [
+                'type' => 'VARCHAR',
+                'constraint' => 150,
+                'null' => true,
+            ],
+            'occupation' => [
+                'type' => 'VARCHAR',
+                'constraint' => 150,
+                'null' => true,
+            ],
+            'hobbies' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
+            'bio' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
             'status' => [
                 'type'       => 'ENUM',
                 'constraint' => ['active', 'disqualified', 'withdrawn'],
