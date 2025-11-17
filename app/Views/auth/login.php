@@ -9,7 +9,7 @@
 </head>
 <body class="login-page">
   <div class="login-wrap">
-    <div class="login-title"><span class="dot"></span><i class="fas fa-crown" aria-hidden="true"></i><span>Pageant Management System</span></div>
+    <div class="login-title"></span><i class="fas fa-crown" aria-hidden="true"></i><span>Pageant Management System</span></div>
     <div class="login-card">
     <h1>Sign in</h1>
     <p class="login-subtitle">Welcome back. Please enter your credentials.</p>

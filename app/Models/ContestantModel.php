@@ -13,6 +13,7 @@ class ContestantModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'event_id',
         'contestant_number',
         'first_name',
         'last_name',
@@ -20,6 +21,14 @@ class ContestantModel extends Model
         'phone',
         'address',
         'date_of_birth',
+        'age',
+        'hometown',
+        'height',
+        'weight',
+        'education',
+        'occupation',
+        'hobbies',
+        'bio',
         'gender',
         'status',
         'photo_path'
