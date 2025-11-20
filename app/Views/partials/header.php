@@ -3,6 +3,7 @@
 <?php
   
     $currentUrl = current_url();
+    $isJudge = (session('role') === 'judge') || (($page_title ?? '') === 'Judge');
     $menuItems = [
         'dashboard' => [
             'url'  => 'dashboard',
@@ -40,7 +41,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark header-gradient floating-nav">
   <div class="container-fluid">
     <!-- Mobile brand (hidden on lg and up to prevent duplication) -->
-    <a class="navbar-brand fw-semibold d-lg-none" href="/dashboard">
+    <a class="navbar-brand fw-semibold d-lg-none" href="<?= $isJudge ? base_url('judge') : base_url('dashboard') ?>">
       <i class="fas fa-crown me-2"></i>
       <?php echo htmlspecialchars($system_name ?? 'Pageant Management System'); ?>
     </a>
@@ -57,17 +58,21 @@
             <i class="fas fa-user-circle me-1"></i> <?= isset($user_greeting) && $user_greeting ? esc($user_greeting) : 'Menu' ?>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="<?= base_url('admin') ?>"><i class="fas fa-home me-2"></i>Admin Home</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('events/create') ?>"><i class="fas fa-calendar-plus me-2"></i>Add Event</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?= isset($logout_url) ? esc($logout_url) : base_url('logout') ?>"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            <?php if ($isJudge): ?>
+              <li><a class="dropdown-item" href="<?= isset($logout_url) ? esc($logout_url) : base_url('logout') ?>"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            <?php else: ?>
+              <li><a class="dropdown-item" href="<?= base_url('admin') ?>"><i class="fas fa-home me-2"></i>Admin Home</a></li>
+              <li><a class="dropdown-item" href="<?= base_url('events/create') ?>"><i class="fas fa-calendar-plus me-2"></i>Add Event</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="<?= isset($logout_url) ? esc($logout_url) : base_url('logout') ?>"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            <?php endif; ?>
           </ul>
         </li>
       </ul>
 
-      <?php if (empty($hide_center_nav) || !$hide_center_nav): ?>
+      <?php if (!$isJudge && (empty($hide_center_nav) || !$hide_center_nav)): ?>
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 justify-content-center">
         <?php foreach ($menuItems as $key => $item): 
             $isCurrentPage = strpos($currentUrl, $item['url']) !== false;
@@ -102,12 +107,16 @@
             <i class="fas fa-user-circle me-1"></i> Menu
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="<?= base_url('admin') ?>"><i class="fas fa-home me-2"></i>Admin Home</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('events/create') ?>"><i class="fas fa-calendar-plus me-2"></i>Add Event</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#systemSettingsModal"><i class="fas fa-cog me-2"></i>Settings</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?= base_url('logout') ?>"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            <?php if ($isJudge): ?>
+              <li><a class="dropdown-item" href="<?= base_url('logout') ?>"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            <?php else: ?>
+              <li><a class="dropdown-item" href="<?= base_url('admin') ?>"><i class="fas fa-home me-2"></i>Admin Home</a></li>
+              <li><a class="dropdown-item" href="<?= base_url('events/create') ?>"><i class="fas fa-calendar-plus me-2"></i>Add Event</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#systemSettingsModal"><i class="fas fa-cog me-2"></i>Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="<?= base_url('logout') ?>"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            <?php endif; ?>
           </ul>
         </li>
       </ul>

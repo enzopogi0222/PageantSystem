@@ -15,6 +15,12 @@ class CreateContestantsTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'event_id' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,
+            ],
             'contestant_number' => [
                 'type'       => 'INT',
                 'constraint' => 11,
@@ -112,6 +118,8 @@ class CreateContestantsTable extends Migration
         ]);
 
         $this->forge->addKey('id', true);
+        // Optional index for filtering by event
+        $this->forge->addKey('event_id');
         $this->forge->createTable('contestants');
     }
 

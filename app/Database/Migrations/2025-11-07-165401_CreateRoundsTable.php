@@ -15,6 +15,12 @@ class CreateRoundsTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'event_id' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,
+            ],
             'name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
@@ -57,6 +63,7 @@ class CreateRoundsTable extends Migration
         ]);
 
         $this->forge->addKey('id', true);
+        $this->forge->addKey(['event_id', 'round_order']);
         $this->forge->createTable('rounds');
     }
 

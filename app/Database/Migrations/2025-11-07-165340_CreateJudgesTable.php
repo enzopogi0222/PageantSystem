@@ -15,6 +15,12 @@ class CreateJudgesTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'event_id' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,
+            ],
             'user_id' => [
                 'type'       => 'INT',
                 'constraint' => 11,
@@ -65,6 +71,7 @@ class CreateJudgesTable extends Migration
         ]);
 
         $this->forge->addKey('id', true);
+        $this->forge->addKey('event_id');
         $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('judges');
     }

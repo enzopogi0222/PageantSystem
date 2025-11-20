@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class CriteriaModel extends Model
 {
-    protected $table            = 'criterias';
+    protected $table            = 'criteria';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

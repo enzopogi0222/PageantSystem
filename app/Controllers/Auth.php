@@ -71,6 +71,10 @@ class Auth extends Controller
             'isLoggedIn' => true,
         ]);
 
+        // Redirect based on role
+        if (($user->role ?? null) === 'judge') {
+            return redirect()->to('/judge');
+        }
         return redirect()->to('/admin');
     }
 
